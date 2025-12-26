@@ -131,16 +131,17 @@ body, html {
     gap: var(--spacing-md);
 }
 
+/* Desktop ordering - logo, nav, button */
 .header-container > a {
     order: 1;
 }
 
-.header-container > button {
-    order: 3;
-}
-
 .header-container > nav {
     order: 2;
+}
+
+.header-container > button {
+    order: 3;
 }
 
 .logo {
@@ -859,9 +860,17 @@ body, html {
     }
     
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
         margin-left: auto;
-        order: 2;
+        order: 999 !important;
+    }
+    
+    .header-container > button {
+        order: 999 !important;
+    }
+    
+    .header-container > a {
+        order: 1 !important;
     }
     
     .hero {
@@ -995,8 +1004,17 @@ body, html {
     }
     
     .mobile-menu-toggle {
+        display: flex !important;
         margin-left: auto;
-        order: 2;
+        order: 999 !important;
+    }
+    
+    .header-container > button {
+        order: 999 !important;
+    }
+    
+    .header-container > a {
+        order: 1 !important;
     }
     
     .header {
