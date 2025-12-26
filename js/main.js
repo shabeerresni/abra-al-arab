@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav');
     
     if (mobileMenuToggle && nav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             nav.classList.toggle('active');
             this.textContent = nav.classList.contains('active') ? '✕' : '☰';
         });
@@ -19,8 +20,32 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 nav.classList.remove('active');
-                mobileMenuToggle.textContent = '☰';
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.textContent = '☰';
+                }
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenuToggle.textContent = '☰';
+            }
+        });
+        
+        // Close mobile menu on window resize (if window becomes larger)
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            }, 250);
         });
     }
     
