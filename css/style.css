@@ -852,25 +852,30 @@ body, html {
         padding: var(--spacing-sm);
         position: relative;
         justify-content: space-between;
+        flex-wrap: nowrap;
     }
     
     .logo {
         height: 100px;
         width: 100px;
+        flex-shrink: 0;
     }
     
     .mobile-menu-toggle {
         display: flex !important;
-        margin-left: auto;
+        margin-left: auto !important;
         order: 999 !important;
+        flex-shrink: 0;
     }
     
     .header-container > button {
         order: 999 !important;
+        margin-left: auto !important;
     }
     
     .header-container > a {
         order: 1 !important;
+        flex-shrink: 0;
     }
     
     .hero {
@@ -889,7 +894,13 @@ body, html {
     }
     
     .header-container > nav {
-        display: none;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .nav {
@@ -995,26 +1006,39 @@ body, html {
     .header-container {
         padding: var(--spacing-xs) var(--spacing-sm);
         min-height: 90px;
-        justify-content: space-between;
+        justify-content: space-between !important;
+        flex-wrap: nowrap;
     }
     
     .logo {
         height: 90px;
         width: 90px;
+        flex-shrink: 0;
     }
     
     .mobile-menu-toggle {
         display: flex !important;
-        margin-left: auto;
+        margin-left: auto !important;
         order: 999 !important;
+        flex-shrink: 0;
     }
     
     .header-container > button {
         order: 999 !important;
+        margin-left: auto !important;
     }
     
     .header-container > a {
         order: 1 !important;
+        flex-shrink: 0;
+    }
+    
+    .header-container > nav {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
     }
     
     .header {
