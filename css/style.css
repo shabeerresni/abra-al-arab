@@ -807,7 +807,7 @@ body, html {
     
     .vmv-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-sm);
+        gap: var(--spacing-md);
     }
     
     .client-list {
