@@ -131,6 +131,18 @@ body, html {
     gap: var(--spacing-md);
 }
 
+.header-container > a {
+    order: 1;
+}
+
+.header-container > button {
+    order: 3;
+}
+
+.header-container > nav {
+    order: 2;
+}
+
 .logo {
     height: 100px;
     width: 100px;
@@ -838,11 +850,18 @@ body, html {
         min-height: 90px;
         padding: var(--spacing-sm);
         position: relative;
+        justify-content: space-between;
     }
     
     .logo {
-        height: 80px;
-        width: 80px;
+        height: 100px;
+        width: 100px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+        order: 2;
     }
     
     .hero {
@@ -860,8 +879,8 @@ body, html {
         line-height: 1.6;
     }
     
-    .mobile-menu-toggle {
-        display: flex;
+    .header-container > nav {
+        display: none;
     }
     
     .nav {
@@ -877,11 +896,13 @@ body, html {
         gap: 0;
         max-height: calc(100vh - 90px);
         overflow-y: auto;
+        display: flex;
     }
     
     .nav.active {
         left: 0;
     }
+    
     
     .nav-link {
         padding: var(--spacing-sm) var(--spacing-md);
@@ -964,12 +985,18 @@ body, html {
     
     .header-container {
         padding: var(--spacing-xs) var(--spacing-sm);
-        min-height: 80px;
+        min-height: 90px;
+        justify-content: space-between;
     }
     
     .logo {
-        height: 70px;
-        width: 70px;
+        height: 90px;
+        width: 90px;
+    }
+    
+    .mobile-menu-toggle {
+        margin-left: auto;
+        order: 2;
     }
     
     .header {
@@ -977,8 +1004,12 @@ body, html {
     }
     
     .nav {
-        top: 80px;
-        max-height: calc(100vh - 80px);
+        top: 90px;
+        max-height: calc(100vh - 90px);
+    }
+    
+    .header-container > nav {
+        display: none;
     }
     
     .container {
