@@ -397,6 +397,30 @@ img {
     object-fit: cover;
 }
 
+/* Contact Overview Layout */
+.contact-overview {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-description {
+    flex: 1;
+}
+
+.contact-image {
+    flex: 0 0 400px;
+}
+
+.tanker-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
 /* Vision, Mission, Values - 3 Column Layout */
 .vmv-grid {
     display: grid;
@@ -895,6 +919,17 @@ img {
     }
     
     .about-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .contact-overview {
+        flex-direction: column;
+    }
+    
+    .contact-image {
         flex: 0 0 auto;
         width: 100%;
         max-width: 500px;
