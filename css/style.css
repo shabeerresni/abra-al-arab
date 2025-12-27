@@ -421,6 +421,31 @@ img {
     object-fit: cover;
 }
 
+/* Leadership Overview Layout */
+.leadership-overview {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.leadership-description {
+    flex: 1;
+}
+
+.leadership-image {
+    flex: 0 0 450px;
+}
+
+.leadership-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
 /* Vision, Mission, Values - 3 Column Layout */
 .vmv-grid {
     display: grid;
@@ -934,6 +959,21 @@ img {
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
+    }
+    
+    .leadership-overview {
+        flex-direction: column;
+    }
+    
+    .leadership-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .leadership-hero-image {
+        max-height: 400px;
     }
 }
 
