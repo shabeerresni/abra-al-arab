@@ -171,9 +171,24 @@ img {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary);
+    padding: var(--spacing-xs);
+    z-index: 1001;
+    transition: var(--transition);
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+    color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Hero Section */
@@ -743,21 +758,35 @@ img {
         font-size: 1.1rem;
     }
     
+    .header-container {
+        position: relative;
+        min-height: 100px;
+    }
+    
     .mobile-menu-toggle {
-        display: block;
+        display: flex;
+        margin-left: auto;
+        order: 2;
+    }
+    
+    .header-container > nav {
+        display: none;
     }
     
     .nav {
         position: fixed;
-        top: 110px;
+        top: 100px;
         left: -100%;
         width: 100%;
+        height: calc(100vh - 100px);
         background: var(--color-white);
         flex-direction: column;
         padding: var(--spacing-md);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: var(--transition);
+        transition: left 0.3s ease;
         gap: 0;
+        z-index: 999;
+        overflow-y: auto;
     }
     
     .nav.active {
@@ -765,9 +794,11 @@ img {
     }
     
     .nav-link {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
         border-bottom: 1px solid var(--color-gray);
         display: block;
+        width: 100%;
+        text-align: left;
     }
     
     .nav-link.active::after {
@@ -794,9 +825,8 @@ img {
 @media (max-width: 480px) {
     .header-container {
         padding: var(--spacing-xs) var(--spacing-sm);
-        min-height: auto;
-        flex-wrap: wrap;
-        align-items: flex-start;
+        min-height: 100px;
+        position: relative;
     }
     
     .header {
@@ -808,8 +838,22 @@ img {
         width: 80px;
     }
     
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .header-container > nav {
+        display: none;
+    }
+    
     .header-container {
         min-height: 100px;
+    }
+    
+    .nav {
+        top: 100px;
+        height: calc(100vh - 100px);
     }
     
     .container {
