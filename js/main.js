@@ -6,7 +6,7 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav');
+    const nav = document.querySelector('nav');
     
     if (mobileMenuToggle && nav) {
         mobileMenuToggle.addEventListener('click', function(e) {
