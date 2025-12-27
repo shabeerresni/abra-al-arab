@@ -648,6 +648,54 @@ img {
     font-size: 0.9rem;
 }
 
+/* Office Address Section with Map */
+.office-address-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.office-address-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: stretch;
+}
+
+.office-address-text {
+    flex: 1;
+    padding: var(--spacing-md);
+    background: var(--color-light-gray);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.office-address-text h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.office-address-text p {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+.office-address-map {
+    flex: 1;
+    min-height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.office-address-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    display: block;
+}
+
 /* Contact Form */
 .contact-info {
     display: grid;
@@ -974,6 +1022,18 @@ img {
     
     .leadership-hero-image {
         max-height: 400px;
+    }
+    
+    .office-address-content {
+        flex-direction: column;
+    }
+    
+    .office-address-map {
+        min-height: 300px;
+    }
+    
+    .office-address-map iframe {
+        min-height: 300px;
     }
 }
 
