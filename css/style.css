@@ -764,6 +764,11 @@ img {
         min-height: 100px;
     }
     
+    .logo {
+        height: 120px;
+        width: 120px;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
         margin-left: auto;
@@ -839,8 +844,8 @@ img {
     }
     
     .logo {
-        height: 80px;
-        width: 80px;
+        height: 110px;
+        width: 110px;
     }
     
     .mobile-menu-toggle {
