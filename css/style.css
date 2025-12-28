@@ -1204,7 +1204,7 @@ img {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     
     .section-title {
@@ -1212,11 +1212,19 @@ img {
     }
     
     h2 {
-        font-size: 1.75rem;
+        font-size: 1.3rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    h4 {
+        font-size: 0.85rem;
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     
     .hero-subtitle {
@@ -1459,8 +1467,28 @@ img {
         padding: var(--spacing-md) var(--spacing-sm);
     }
     
+    h1 {
+        font-size: 1.4rem;
+    }
+    
     .section-title {
         font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+    }
+    
+    h3 {
+        font-size: 0.85rem;
+    }
+    
+    h4 {
+        font-size: 0.7rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.4rem;
     }
     
     .hero {
