@@ -5,10 +5,11 @@
 
 /* CSS Variables - Brand Colors */
 :root {
-    /* Primary Colors - Professional Blue */
-    --color-primary: #1e3a8a;
-    --color-primary-dark: #1e40af;
-    --color-primary-light: #3b82f6;
+    /* Primary Colors - Darker Professional Blue (Logo-inspired) */
+    --color-primary: #0d1b3a;
+    --color-primary-dark: #0a1529;
+    --color-primary-light: #1a2e5c;
+    --color-primary-bright: #2d4a7a;
     
     /* Accent Colors - Red */
     --color-accent: #dc2626;
@@ -108,10 +109,11 @@ img {
 .header {
     position: sticky;
     top: 0;
-    background-color: var(--color-white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(180deg, var(--color-white) 0%, rgba(255, 255, 255, 0.98) 100%);
+    box-shadow: 0 4px 20px rgba(13, 27, 58, 0.15);
     z-index: 1000;
     padding: var(--spacing-xs) 0;
+    backdrop-filter: blur(10px);
 }
 
 .header-container {
@@ -146,10 +148,13 @@ img {
     padding: var(--spacing-xs) var(--spacing-sm);
     position: relative;
     font-size: 0.95rem;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
 .nav-link:hover {
-    color: var(--color-accent);
+    color: var(--color-primary);
+    background: rgba(13, 27, 58, 0.05);
 }
 
 .nav-link.active {
@@ -162,8 +167,9 @@ img {
     bottom: 0;
     left: var(--spacing-sm);
     right: var(--spacing-sm);
-    height: 2px;
-    background-color: var(--color-accent);
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    border-radius: 2px 2px 0 0;
 }
 
 /* Mobile Menu Toggle */
@@ -214,7 +220,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(13, 27, 58, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
     z-index: 1;
 }
 
@@ -257,6 +263,22 @@ img {
     text-align: center;
     margin-bottom: var(--spacing-lg);
     color: var(--color-primary);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    font-size: 2.75rem;
+    letter-spacing: -0.02em;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    border-radius: 2px;
 }
 
 /* Service Pillars */
@@ -270,16 +292,35 @@ img {
 .pillar-card {
     background: var(--color-white);
     border: 2px solid var(--color-gray);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: var(--spacing-md);
     text-align: center;
     transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(13, 27, 58, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.pillar-card:hover::before {
+    transform: scaleX(1);
 }
 
 .pillar-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(13, 27, 58, 0.2);
 }
 
 .pillar-icon {
@@ -307,19 +348,38 @@ img {
 }
 
 .nav-tile {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
     color: var(--color-white);
     padding: var(--spacing-lg);
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
     transition: var(--transition);
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-tile::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tile:hover::before {
+    opacity: 1;
 }
 
 .nav-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(13, 27, 58, 0.4);
+    background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%);
 }
 
 .nav-tile h3 {
@@ -341,7 +401,18 @@ img {
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--color-accent);
+    border-bottom: 3px solid var(--color-accent);
+    position: relative;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, transparent 100%);
 }
 
 .content-section p {
@@ -510,19 +581,29 @@ img {
 }
 
 .vmv-card {
-    background: var(--color-light-gray);
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light-gray) 100%);
     padding: var(--spacing-md);
-    border-radius: 8px;
-    border-left: 4px solid var(--color-accent);
+    border-radius: 12px;
+    border-left: 5px solid var(--color-accent);
+    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.1);
+    transition: var(--transition);
+}
+
+.vmv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(13, 27, 58, 0.2);
+    border-left-color: var(--color-primary);
 }
 
 .vmv-card h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
 }
 
 .vmv-card p {
     color: var(--color-text-light);
+    line-height: 1.7;
 }
 
 /* Services Matrix */
@@ -535,20 +616,41 @@ img {
 
 .service-card {
     background: var(--color-white);
-    border: 1px solid var(--color-gray);
-    border-radius: 8px;
+    border: 2px solid var(--color-gray);
+    border-radius: 12px;
     padding: var(--spacing-md);
     transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(13, 27, 58, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
 }
 
 .service-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-accent);
+    box-shadow: 0 12px 30px rgba(13, 27, 58, 0.2);
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
 }
 
 .service-card h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
+    font-size: 1.4rem;
 }
 
 .service-card ul {
@@ -581,23 +683,51 @@ img {
 
 .leadership-card {
     background: var(--color-white);
-    border: 1px solid var(--color-gray);
-    border-radius: 8px;
+    border: 2px solid var(--color-gray);
+    border-radius: 12px;
     padding: var(--spacing-md);
     text-align: center;
     min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(13, 27, 58, 0.08);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.leadership-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.leadership-card:hover::before {
+    transform: scaleX(1);
+}
+
+.leadership-card:hover {
+    box-shadow: 0 12px 30px rgba(13, 27, 58, 0.2);
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
 }
 
 .leadership-card h3 {
     color: var(--color-primary);
+    font-size: 1.4rem;
 }
 
 .leadership-card p {
     color: var(--color-text-light);
     font-style: italic;
+    line-height: 1.7;
 }
 
 /* Clients Section */
@@ -640,12 +770,26 @@ img {
 
 /* Quote Highlight */
 .quote-highlight {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
     color: var(--color-white);
     padding: var(--spacing-lg);
-    border-radius: 8px;
+    border-radius: 12px;
     margin: var(--spacing-md) 0;
-    border-left: 4px solid var(--color-accent);
+    border-left: 5px solid var(--color-accent);
+    box-shadow: 0 6px 20px rgba(13, 27, 58, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-highlight::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.05);
+    font-family: Georgia, serif;
+    line-height: 1;
 }
 
 .quote-highlight p {
@@ -653,6 +797,8 @@ img {
     font-style: italic;
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 1;
 }
 
 /* Associates Cards */
@@ -665,25 +811,47 @@ img {
 
 .associate-card {
     background: var(--color-white);
-    border: 1px solid var(--color-gray);
-    border-radius: 8px;
+    border: 2px solid var(--color-gray);
+    border-radius: 12px;
     padding: var(--spacing-md);
     transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(13, 27, 58, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.associate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.associate-card:hover::before {
+    transform: scaleX(1);
 }
 
 .associate-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-accent);
+    box-shadow: 0 12px 30px rgba(13, 27, 58, 0.2);
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
 }
 
 .associate-card h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
+    font-size: 1.4rem;
 }
 
 .associate-card p {
     color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
 }
 
 .associate-link {
@@ -692,10 +860,21 @@ img {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-xs);
+    transition: var(--transition);
+    position: relative;
+}
+
+.associate-link::after {
+    content: '→';
+    transition: transform 0.3s ease;
 }
 
 .associate-link:hover {
     color: var(--color-accent-dark);
+}
+
+.associate-link:hover::after {
+    transform: translateX(5px);
 }
 
 .associate-link::after {
@@ -800,19 +979,21 @@ img {
 .form-group textarea {
     width: 100%;
     padding: var(--spacing-sm);
-    border: 1px solid var(--color-gray);
-    border-radius: 4px;
+    border: 2px solid var(--color-gray);
+    border-radius: 6px;
     font-family: var(--font-primary);
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--color-white);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(13, 27, 58, 0.1);
+    transform: translateY(-1px);
 }
 
 .form-group textarea {
@@ -829,30 +1010,50 @@ img {
 .btn {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
     color: var(--color-white);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-family: var(--font-primary);
     font-size: 1rem;
     font-weight: var(--font-weight-medium);
     cursor: pointer;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn:hover {
-    background: var(--color-primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 27, 58, 0.4);
 }
 
 .btn-accent {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
     color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
 }
 
 .btn-accent:hover {
-    background: var(--color-accent-light);
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
 }
 
 .form-message {
@@ -878,10 +1079,22 @@ img {
 
 /* Footer */
 .footer {
-    background: var(--color-primary);
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-white);
     padding: var(--spacing-lg) var(--spacing-md);
     margin-top: var(--spacing-xl);
+    box-shadow: 0 -4px 20px rgba(13, 27, 58, 0.2);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary-bright) 100%);
 }
 
 .footer-container {
