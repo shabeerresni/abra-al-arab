@@ -447,49 +447,42 @@ img {
 /* About Banner */
 .about-banner {
     width: 100%;
-    overflow: hidden;
     margin: 0;
     position: relative;
     background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 600px;
 }
 
 /* Clients Banner */
 .clients-banner {
     width: 100%;
-    overflow: hidden;
     margin: 0;
     position: relative;
     background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 600px;
 }
 
 /* Associates Banner */
 .associates-banner {
     width: 100%;
-    overflow: hidden;
     margin: 0;
     position: relative;
     background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 600px;
 }
 
 .banner-image {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    max-height: 600px;
 }
 
 /* About Overview Layout */
@@ -1200,15 +1193,6 @@ img {
 /* Responsive Design */
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Tablet/iPad Landscape Styles */
-    .about-banner,
-    .clients-banner,
-    .associates-banner {
-        max-height: 500px;
-    }
-    
-    .banner-image {
-        max-height: 500px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1413,16 +1397,6 @@ img {
         min-height: 300px;
     }
     
-    .about-banner,
-    .clients-banner,
-    .associates-banner {
-        max-height: 350px;
-    }
-    
-    .banner-image {
-        max-height: 350px;
-        width: 100%;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1515,14 +1489,5 @@ img {
         padding: var(--spacing-md);
     }
     
-    .about-banner,
-    .clients-banner,
-    .associates-banner {
-        max-height: 300px;
-    }
-    
-    .banner-image {
-        max-height: 300px;
-    }
 }
 
