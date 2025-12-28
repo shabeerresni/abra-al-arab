@@ -457,6 +457,19 @@ img {
     max-height: 600px;
 }
 
+/* Clients Banner */
+.clients-banner {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+}
+
 .banner-image {
     width: 100%;
     height: auto;
@@ -1174,7 +1187,8 @@ img {
 /* Responsive Design */
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Tablet/iPad Landscape Styles */
-    .about-banner {
+    .about-banner,
+    .clients-banner {
         max-height: 500px;
     }
     
@@ -1373,7 +1387,8 @@ img {
         min-height: 300px;
     }
     
-    .about-banner {
+    .about-banner,
+    .clients-banner {
         max-height: 350px;
     }
     
@@ -1449,7 +1464,8 @@ img {
         padding: var(--spacing-md);
     }
     
-    .about-banner {
+    .about-banner,
+    .clients-banner {
         max-height: 300px;
     }
     
