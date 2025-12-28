@@ -1207,6 +1207,10 @@ img {
         font-size: 2rem;
     }
     
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
     h2 {
         font-size: 1.75rem;
     }
@@ -1453,6 +1457,10 @@ img {
     
     .container {
         padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
     
     .hero {
