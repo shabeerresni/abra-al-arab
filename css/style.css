@@ -477,6 +477,28 @@ img {
     justify-content: center;
 }
 
+/* Leadership Banner */
+.leadership-banner {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Services Banner */
+.services-banner {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .banner-image {
     width: 100%;
     height: auto;
