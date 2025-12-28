@@ -475,6 +475,32 @@ img {
     display: block;
 }
 
+/* Associates Overview Layout */
+.associates-overview {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.associates-description {
+    flex: 1;
+}
+
+.associates-image {
+    flex: 0 0 auto;
+    width: 450px;
+    max-width: 100%;
+}
+
+.diesel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
 /* Vision, Mission, Values - 3 Column Layout */
 .vmv-grid {
     display: grid;
@@ -1067,6 +1093,22 @@ img {
         width: 100%;
         height: auto;
         margin: 0 auto;
+    }
+    
+    .associates-overview {
+        flex-direction: column;
+    }
+    
+    .associates-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .diesel-image {
+        width: 100%;
+        height: auto;
     }
     
     .leadership-hero-image {
