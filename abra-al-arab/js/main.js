@@ -147,7 +147,7 @@ function validateField(field) {
 function showFieldError(field, message) {
     if (!field) return;
     
-    field.style.borderColor = '#dc3545';
+    field.style.borderColor = '#c99a2e';
     
     // Remove existing error message
     const existingError = field.parentElement.querySelector('.field-error');
@@ -158,7 +158,7 @@ function showFieldError(field, message) {
     // Add error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-error';
-    errorDiv.style.color = '#dc3545';
+    errorDiv.style.color = '#c99a2e';
     errorDiv.style.fontSize = '0.875rem';
     errorDiv.style.marginTop = '0.25rem';
     errorDiv.textContent = message;
