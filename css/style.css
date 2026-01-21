@@ -454,6 +454,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 /* Clients Banner */
@@ -465,6 +467,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 /* Associates Banner */
@@ -476,6 +480,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 /* Leadership Banner */
@@ -487,6 +493,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 /* Services Banner */
@@ -498,6 +506,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 /* Contact Banner */
@@ -509,12 +519,16 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(180px, 22vw, 320px);
+    overflow: hidden;
 }
 
 .banner-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* About Overview Layout */
