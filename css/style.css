@@ -450,7 +450,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -463,7 +464,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -476,7 +478,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -489,7 +492,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -502,7 +506,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,7 +520,8 @@ img {
     width: 100%;
     margin: 0;
     position: relative;
-    background: var(--color-primary);
+    background: radial-gradient(circle at 30% 30%, rgba(var(--color-accent-rgb), 0.18) 0%, rgba(13, 27, 58, 0) 55%),
+                linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -527,7 +533,7 @@ img {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
