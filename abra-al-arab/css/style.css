@@ -42,7 +42,7 @@
     
     /* Layout */
     --max-width: 1200px;
-    --header-height: 100px;
+    --header-height: 96px;
     --transition: all 0.3s ease;
 }
 
@@ -124,13 +124,14 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 200px;
+    min-height: var(--header-height);
     gap: var(--spacing-md);
 }
 
 .logo {
-    height: 200px;
-    width: 200px;
+    height: calc(var(--header-height) - 16px);
+    width: auto;
+    max-width: 240px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -1245,6 +1246,7 @@ img {
     :root {
         --spacing-xl: 2rem;
         --spacing-lg: 2rem;
+        --header-height: 80px;
     }
     
     h1 {
@@ -1277,12 +1279,13 @@ img {
     
     .header-container {
         position: relative;
-        min-height: 100px;
+        min-height: var(--header-height);
     }
     
     .logo {
-        height: 140px;
-        width: 140px;
+        height: calc(var(--header-height) - 12px);
+        width: auto;
+        max-width: 200px;
     }
     
     .mobile-menu-toggle {
@@ -1293,10 +1296,10 @@ img {
     
     .header-container > nav {
         position: fixed;
-        top: 100px;
+        top: var(--header-height);
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.3s ease;
         pointer-events: none;
@@ -1448,7 +1451,7 @@ img {
 @media (max-width: 480px) {
     .header-container {
         padding: var(--spacing-xs) var(--spacing-sm);
-        min-height: 100px;
+        min-height: var(--header-height);
         position: relative;
     }
     
@@ -1457,8 +1460,9 @@ img {
     }
     
     .logo {
-        height: 130px;
-        width: 130px;
+        height: calc(var(--header-height) - 12px);
+        width: auto;
+        max-width: 180px;
     }
     
     .mobile-menu-toggle {
@@ -1468,10 +1472,10 @@ img {
     
     .header-container > nav {
         position: fixed;
-        top: 100px;
+        top: var(--header-height);
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.3s ease;
         pointer-events: none;
@@ -1482,8 +1486,8 @@ img {
         pointer-events: all;
     }
     
-    .header-container {
-        min-height: 100px;
+    :root {
+        --header-height: 72px;
     }
     
     .nav {
