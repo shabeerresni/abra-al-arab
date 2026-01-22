@@ -94,7 +94,11 @@
             <!-- Contact Form -->
             <div class="contact-form">
                 <h2 style="margin-bottom: var(--spacing-md); text-align: center;">Send Us a Message</h2>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/info@abraalarab.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission from Abra Al Arab Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://abraalarab.com/contact.html?success=true">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-group">
                         <label for="name">Name <span style="color: var(--color-accent);">*</span></label>
                         <input type="text" id="name" name="name" required>

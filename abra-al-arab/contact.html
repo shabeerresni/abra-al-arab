@@ -38,17 +38,44 @@
             <h1 class="section-title">Contact Us</h1>
             
             <div class="content-section">
-                <p style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-lg); font-size: 1.1rem; line-height: 1.8;">
-                    We are here to assist you with your petroleum trading needs. Whether you are looking for reliable suppliers, seeking new markets, or require customized trading solutions, our team is ready to help. Please reach out to us through any of the channels below or use the contact form.
-                </p>
+                <div class="contact-overview">
+                    <div class="contact-description">
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            We are here to assist you with your petroleum trading needs. Whether you are looking for reliable suppliers, seeking new markets, or require customized trading solutions, our team is ready to help. Please reach out to us through any of the channels below or use the contact form.
+                        </p>
+                    </div>
+                    <div class="contact-image">
+                        <img src="./assets/images/tanker.jpg" alt="Tanker operations" class="tanker-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Address with Map -->
+            <div class="office-address-section">
+                <div class="office-address-content">
+                    <div class="office-address-text">
+                        <h3>Office Address</h3>
+                        <p>Office M20, MEZZANINE FLOOR,<br>
+                        AL DANA CENTRE, MAKTOUM STREET,<br>
+                        DEIRA, DUBAI, UAE</p>
+                    </div>
+                    <div class="office-address-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.251899651141!2d55.3166551754528!3d25.262110329068246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5ccdd08ee543%3A0xebb13c29ccfefdd2!2sAl%20Dana%20Centre!5e0!3m2!1sen!2sin!4v1766859365877!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; border-radius: 8px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Office Location Map">
+                        </iframe>
+                    </div>
+                </div>
             </div>
 
             <!-- Contact Information -->
             <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Office Address</h3>
-                    <p>Dubai, United Arab Emirates</p>
-                </div>
                 <div class="contact-item">
                     <h3>Email</h3>
                     <p><a href="mailto:info@abraalarab.com" style="color: var(--color-accent);">info@abraalarab.com</a></p>
@@ -67,7 +94,11 @@
             <!-- Contact Form -->
             <div class="contact-form">
                 <h2 style="margin-bottom: var(--spacing-md); text-align: center;">Send Us a Message</h2>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/info@abraalarab.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission from Abra Al Arab Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://abraalarab.com/contact.html?success=true">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-group">
                         <label for="name">Name <span style="color: var(--color-accent);">*</span></label>
                         <input type="text" id="name" name="name" required>
@@ -153,7 +184,9 @@
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Dubai, United Arab Emirates</p>
+                <p>Office M20, MEZZANINE FLOOR,<br>
+                AL DANA CENTRE, MAKTOUM STREET,<br>
+                DEIRA, DUBAI, UAE</p>
             </div>
         </div>
         <div class="footer-bottom">
