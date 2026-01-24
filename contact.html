@@ -15,7 +15,7 @@
     <header class="header">
         <div class="header-container">
             <a href="index.html">
-                <img src="./assets/images/logo.jpg" alt="Abra Al Arab Logo" class="logo">
+                <img src="./assets/images/logo_revised.png" alt="Abra Al Arab Logo" class="logo">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <nav>
@@ -31,11 +31,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Banner Image -->
-    <div class="contact-banner">
-        <img src="./assets/images/banner10.png" alt="Contact Us" class="banner-image">
-    </div>
 
     <!-- Main Content -->
     <main class="container">
@@ -99,9 +94,13 @@
             <!-- Contact Form -->
             <div class="contact-form">
                 <h2 style="margin-bottom: var(--spacing-md); text-align: center;">Send Us a Message</h2>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/info@abraalarab.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission from Abra Al Arab Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://abraalarab.com/contact.html?success=true">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-group">
-                        <label for="name">Name <span style="color: #dc3545;">*</span></label>
+                        <label for="name">Name <span style="color: var(--color-accent);">*</span></label>
                         <input type="text" id="name" name="name" required>
                     </div>
 
@@ -118,11 +117,11 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email <span style="color: #dc3545;">*</span></label>
+                            <label for="email">Email <span style="color: var(--color-accent);">*</span></label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone <span style="color: #dc3545;">*</span></label>
+                            <label for="phone">Phone <span style="color: var(--color-accent);">*</span></label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                     </div>
@@ -147,7 +146,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Message <span style="color: #dc3545;">*</span></label>
+                        <label for="message">Message <span style="color: var(--color-accent);">*</span></label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
 
@@ -173,7 +172,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3 class="footer-logo">Abra-Al-Arab</h3>
+                <h3 class="footer-logo">Abra Al Arab</h3>
                 <p>Energy & Commodities Trading</p>
                 <p>Dubai, UAE</p>
             </div>
@@ -188,11 +187,10 @@
                 <p>Office M20, MEZZANINE FLOOR,<br>
                 AL DANA CENTRE, MAKTOUM STREET,<br>
                 DEIRA, DUBAI, UAE</p>
-                <p>Email: info@abraalarab.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Abra Al Arab. All rights reserved.</p>
+            <p>&copy; 2024 Abra AlArab Petroleum Trading LLC. All rights reserved.</p>
             <div class="compliance-note">
                 All enquiries and counterparties are subject to internal KYC, sanctions screening, credit assessment and HSE standards, consistent with global commodity trading practices.
             </div>

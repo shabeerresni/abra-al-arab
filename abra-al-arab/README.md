@@ -29,7 +29,7 @@ abra-al-arab.github.io/
 │
 ├── assets/
 │   ├── images/
-│   │   └── logo.jpg        # Company logo
+│   │   └── Rayenna_oil.jpeg        # Company logo
 │   ├── icons/              # Icons directory (if needed)
 │   └── fonts/              # Fonts directory (if needed)
 │

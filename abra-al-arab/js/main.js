@@ -6,10 +6,11 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav');
+    const nav = document.querySelector('nav');
     
     if (mobileMenuToggle && nav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             nav.classList.toggle('active');
             this.textContent = nav.classList.contains('active') ? '✕' : '☰';
         });
@@ -19,8 +20,32 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 nav.classList.remove('active');
-                mobileMenuToggle.textContent = '☰';
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.textContent = '☰';
+                }
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenuToggle.textContent = '☰';
+            }
+        });
+        
+        // Close mobile menu on window resize (if window becomes larger)
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            }, 250);
         });
     }
     
@@ -30,6 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize contact form validation if on contact page
     if (document.querySelector('.contact-form')) {
         initContactForm();
+        
+        // Check if form was submitted successfully (from redirect)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            showSuccessMessage();
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     }
 });
 
@@ -98,10 +131,46 @@ function initContactForm() {
             isValid = false;
         }
         
-        // If form is valid, show success message
+        // If form is valid, submit the form
         if (isValid) {
-            showSuccessMessage();
-            form.reset();
+            // Show loading state
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Submit form data
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showSuccessMessage();
+                    form.reset();
+                } else {
+                    return response.json().then(data => {
+                        if (data.error) {
+                            showErrorMessage(data.error);
+                        } else {
+                            showErrorMessage('There was a problem submitting your form. Please try again.');
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                showErrorMessage('There was a problem submitting your form. Please try again.');
+                console.error('Form submission error:', error);
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
         }
     });
     
@@ -147,7 +216,7 @@ function validateField(field) {
 function showFieldError(field, message) {
     if (!field) return;
     
-    field.style.borderColor = '#dc3545';
+    field.style.borderColor = '#c99a2e';
     
     // Remove existing error message
     const existingError = field.parentElement.querySelector('.field-error');
@@ -158,7 +227,7 @@ function showFieldError(field, message) {
     // Add error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-error';
-    errorDiv.style.color = '#dc3545';
+    errorDiv.style.color = '#c99a2e';
     errorDiv.style.fontSize = '0.875rem';
     errorDiv.style.marginTop = '0.25rem';
     errorDiv.textContent = message;
@@ -201,6 +270,18 @@ function showSuccessMessage() {
         // setTimeout(() => {
         //     messageDiv.style.display = 'none';
         // }, 5000);
+    }
+}
+
+// Show error message
+function showErrorMessage(message) {
+    const messageDiv = document.querySelector('.form-message');
+    if (messageDiv) {
+        messageDiv.className = 'form-message error';
+        messageDiv.textContent = message || 'There was a problem submitting your form. Please try again.';
+        
+        // Scroll to message
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 

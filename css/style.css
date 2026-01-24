@@ -11,10 +11,11 @@
     --color-primary-light: #1a2e5c;
     --color-primary-bright: #2d4a7a;
     
-    /* Accent Colors - Red */
-    --color-accent: #dc2626;
-    --color-accent-light: #ef4444;
-    --color-accent-dark: #b91c1c;
+    /* Accent Colors - Dark Gold (Logo-inspired) */
+    --color-accent: #c99a2e;
+    --color-accent-light: #e0bf6b;
+    --color-accent-dark: #9f7416;
+    --color-accent-rgb: 201, 154, 46;
     
     /* Neutral Colors */
     --color-white: #ffffff;
@@ -41,7 +42,7 @@
     
     /* Layout */
     --max-width: 1200px;
-    --header-height: 100px;
+    --header-height: 96px;
     --transition: all 0.3s ease;
 }
 
@@ -61,7 +62,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 45%, #f5f7fb 100%);
     overflow-x: hidden;
 }
 
@@ -119,17 +120,18 @@ img {
 .header-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--spacing-xs) var(--spacing-md);
+    padding: 0.25rem var(--spacing-md);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 200px;
+    min-height: var(--header-height);
     gap: var(--spacing-md);
 }
 
 .logo {
-    height: 200px;
-    width: 200px;
+    height: calc(var(--header-height) - 6px);
+    width: auto;
+    max-width: 340px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -308,7 +310,7 @@ img {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -453,6 +455,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 /* Clients Banner */
@@ -464,6 +468,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 /* Associates Banner */
@@ -475,6 +481,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 /* Leadership Banner */
@@ -486,6 +494,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 /* Services Banner */
@@ -497,6 +507,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 /* Contact Banner */
@@ -508,12 +520,16 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(200px, 28vw, 400px);
+    overflow: hidden;
 }
 
 .banner-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: contain;
+    object-position: center;
 }
 
 /* About Overview Layout */
@@ -704,7 +720,7 @@ img {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -776,7 +792,7 @@ img {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -899,7 +915,7 @@ img {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -1063,8 +1079,8 @@ img {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(13, 27, 58, 0.1);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.18);
     transform: translateY(-1px);
 }
 
@@ -1120,12 +1136,12 @@ img {
 .btn-accent {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
     color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    box-shadow: 0 4px 15px rgba(var(--color-accent-rgb), 0.35);
 }
 
 .btn-accent:hover {
     background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
-    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 8px 20px rgba(var(--color-accent-rgb), 0.45);
 }
 
 .form-message {
@@ -1143,9 +1159,9 @@ img {
 }
 
 .form-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
     display: block;
 }
 
@@ -1230,6 +1246,7 @@ img {
     :root {
         --spacing-xl: 2rem;
         --spacing-lg: 2rem;
+        --header-height: 80px;
     }
     
     h1 {
@@ -1262,12 +1279,13 @@ img {
     
     .header-container {
         position: relative;
-        min-height: 100px;
+        min-height: var(--header-height);
     }
     
     .logo {
-        height: 140px;
-        width: 140px;
+        height: calc(var(--header-height) - 6px);
+        width: auto;
+        max-width: 280px;
     }
     
     .mobile-menu-toggle {
@@ -1278,10 +1296,10 @@ img {
     
     .header-container > nav {
         position: fixed;
-        top: 100px;
+        top: var(--header-height);
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.3s ease;
         pointer-events: none;
@@ -1433,7 +1451,7 @@ img {
 @media (max-width: 480px) {
     .header-container {
         padding: var(--spacing-xs) var(--spacing-sm);
-        min-height: 100px;
+        min-height: var(--header-height);
         position: relative;
     }
     
@@ -1442,8 +1460,9 @@ img {
     }
     
     .logo {
-        height: 130px;
-        width: 130px;
+        height: calc(var(--header-height) - 6px);
+        width: auto;
+        max-width: 260px;
     }
     
     .mobile-menu-toggle {
@@ -1453,10 +1472,10 @@ img {
     
     .header-container > nav {
         position: fixed;
-        top: 100px;
+        top: var(--header-height);
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.3s ease;
         pointer-events: none;
@@ -1467,8 +1486,8 @@ img {
         pointer-events: all;
     }
     
-    .header-container {
-        min-height: 100px;
+    :root {
+        --header-height: 72px;
     }
     
     .nav {
