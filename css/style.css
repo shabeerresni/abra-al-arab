@@ -3,19 +3,19 @@
    Energy & Commodities Trading - Dubai, UAE
    ============================================ */
 
-/* CSS Variables - Brand Colors */
+/* CSS Variables - Brand Colors (Red & Blue theme) */
 :root {
-    /* Primary Colors - Darker Professional Blue (Logo-inspired) */
+    /* Primary Colors - Professional Blue */
     --color-primary: #0d1b3a;
     --color-primary-dark: #0a1529;
     --color-primary-light: #1a2e5c;
     --color-primary-bright: #2d4a7a;
     
-    /* Accent Colors - Dark Gold (Logo-inspired) */
-    --color-accent: #c99a2e;
-    --color-accent-light: #e0bf6b;
-    --color-accent-dark: #9f7416;
-    --color-accent-rgb: 201, 154, 46;
+    /* Accent Colors - Vibrant Red (replaces yellow/gold) */
+    --color-accent: #dc2626;
+    --color-accent-light: #f87171;
+    --color-accent-dark: #b91c1c;
+    --color-accent-rgb: 220, 38, 38;
     
     /* Neutral Colors */
     --color-white: #ffffff;
@@ -62,7 +62,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text);
-    background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 45%, #f5f7fb 100%);
+    background: linear-gradient(180deg, #f0f4ff 0%, #e8eeff 30%, #dce4f7 60%, #eef2ff 100%);
     overflow-x: hidden;
 }
 
@@ -111,7 +111,7 @@ img {
     position: sticky;
     top: 0;
     background: linear-gradient(180deg, var(--color-white) 0%, rgba(255, 255, 255, 0.98) 100%);
-    box-shadow: 0 4px 20px rgba(13, 27, 58, 0.15);
+    box-shadow: 0 4px 20px rgba(13, 27, 58, 0.12), 0 0 0 1px rgba(220, 38, 38, 0.06);
     z-index: 1000;
     padding: var(--spacing-xs) 0;
     backdrop-filter: blur(10px);
@@ -222,7 +222,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(13, 27, 58, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(13, 27, 58, 0.75) 0%, rgba(220, 38, 38, 0.15) 50%, rgba(0, 0, 0, 0.45) 100%);
     z-index: 1;
 }
 
@@ -350,14 +350,14 @@ img {
 }
 
 .nav-tile {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 80%, rgba(220, 38, 38, 0.2) 100%);
     color: var(--color-white);
     padding: var(--spacing-lg);
     border-radius: 12px;
     text-align: center;
     transition: var(--transition);
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.3);
+    box-shadow: 0 6px 20px rgba(13, 27, 58, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -380,7 +380,7 @@ img {
 
 .nav-tile:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(13, 27, 58, 0.4);
+    box-shadow: 0 18px 45px rgba(13, 27, 58, 0.45), 0 4px 15px rgba(220, 38, 38, 0.2);
     background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%);
 }
 
@@ -1159,9 +1159,9 @@ img {
 }
 
 .form-message.error {
-    background: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
     display: block;
 }
 
@@ -1171,7 +1171,7 @@ img {
     color: var(--color-white);
     padding: var(--spacing-lg) var(--spacing-md);
     margin-top: var(--spacing-xl);
-    box-shadow: 0 -4px 20px rgba(13, 27, 58, 0.2);
+    box-shadow: 0 -6px 24px rgba(13, 27, 58, 0.3), 0 -1px 0 rgba(220, 38, 38, 0.1);
     position: relative;
 }
 
