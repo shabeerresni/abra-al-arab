@@ -1202,6 +1202,22 @@ img {
         align-items: center;
         text-align: center;
     }
+    
+    .footer-section h3 {
+        font-size: 0.95rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.8rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+    
+    .footer-copyright {
+        font-size: 0.7rem;
+    }
 }
 
 .footer-brand {
