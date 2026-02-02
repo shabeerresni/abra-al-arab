@@ -1189,10 +1189,19 @@ img {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(180px, 1fr) minmax(200px, 1fr);
+    grid-template-columns: 1fr 1.25fr 1fr;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     align-items: start;
+}
+
+@media (min-width: 1025px) {
+    .footer-container .footer-section:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .footer-brand {
