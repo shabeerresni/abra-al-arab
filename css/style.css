@@ -1202,9 +1202,9 @@ img {
 }
 
 .footer-logo-img {
-    width: 110px;
+    width: 66px;
     height: auto;
-    max-height: 118px;
+    max-height: 71px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -1266,8 +1266,8 @@ img {
     }
     
     .footer-logo-img {
-        width: 100px;
-        max-height: 110px;
+        width: 60px;
+        max-height: 66px;
     }
 }
 
@@ -1291,8 +1291,8 @@ img {
     }
     
     .footer-logo-img {
-        width: 100px;
-        max-height: 110px;
+        width: 60px;
+        max-height: 66px;
     }
     
     h1 {
@@ -1500,8 +1500,8 @@ img {
     }
     
     .footer-logo-img {
-        width: 91px;
-        max-height: 100px;
+        width: 55px;
+        max-height: 60px;
     }
     
     .header-container {
