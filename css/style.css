@@ -827,9 +827,36 @@ img {
 }
 
 .client-category {
-    background: var(--color-light-gray);
+    background: var(--color-white);
+    border: 2px solid var(--color-gray);
+    border-radius: 12px;
     padding: var(--spacing-md);
-    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(13, 27, 58, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.client-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.client-category:hover::before {
+    transform: scaleX(1);
+}
+
+.client-category:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(13, 27, 58, 0.2);
 }
 
 .client-category h3 {
