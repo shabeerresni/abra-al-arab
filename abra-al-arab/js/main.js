@@ -1,5 +1,5 @@
 /* ============================================
-   Abra Al Arab - Main JavaScript
+   ABRA ALARAB - Main JavaScript
    Navigation & Form Validation
    ============================================ */
 
