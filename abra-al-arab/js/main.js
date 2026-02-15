@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuToggle && nav) {
         mobileMenuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
+            const isOpen = !nav.classList.contains('active');
             nav.classList.toggle('active');
+            document.body.classList.toggle('menu-open', isOpen);
             this.textContent = nav.classList.contains('active') ? '✕' : '☰';
         });
         
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 nav.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 if (mobileMenuToggle) {
                     mobileMenuToggle.textContent = '☰';
                 }
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 !nav.contains(e.target) && 
                 !mobileMenuToggle.contains(e.target)) {
                 nav.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 mobileMenuToggle.textContent = '☰';
             }
         });
@@ -41,8 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                if (window.innerWidth > 991 && nav.classList.contains('active')) {
                     nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                     mobileMenuToggle.textContent = '☰';
                 }
             }, 250);
