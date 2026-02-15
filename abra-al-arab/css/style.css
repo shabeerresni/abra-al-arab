@@ -139,19 +139,20 @@ img {
 .nav {
     display: flex;
     list-style: none;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
     align-items: center;
 }
 
 .nav-link {
     font-weight: var(--font-weight-medium);
     color: var(--color-text);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-xs) 0.45rem;
     position: relative;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border-radius: 4px;
     transition: var(--transition);
+    white-space: nowrap;
 }
 
 .nav-link:hover {
