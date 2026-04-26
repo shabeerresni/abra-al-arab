@@ -380,7 +380,7 @@ img {
 }
 
 .page-hero--associates {
-    background-image: url('../assets/images/diesel.jpg');
+    background-image: url('../assets/images/associates-hero.jpg');
 }
 
 .page-hero--contact {
@@ -427,6 +427,23 @@ img {
 @media (max-width: 480px) {
     .page-hero.page-hero--clients {
         background-position: center 16%;
+    }
+}
+
+/* Associates hero: pumpjack / skyline — bias crop for title legibility */
+.page-hero.page-hero--associates {
+    background-position: center 40%;
+}
+
+@media (min-width: 769px) {
+    .page-hero.page-hero--associates {
+        background-position: center 36%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero.page-hero--associates {
+        background-position: center 34%;
     }
 }
 
