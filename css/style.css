@@ -723,10 +723,9 @@ img {
     line-height: 1.8;
 }
 
-/* Page intro copy (side photos removed — same imagery as page hero) */
+/* Page intro copy — full width inside .container (matches other sections) */
 .services-description {
     margin-bottom: var(--spacing-lg);
-    max-width: 48rem;
 }
 
 /* About Banner */
@@ -815,18 +814,12 @@ img {
     object-position: center;
 }
 
-.about-description {
-    max-width: 48rem;
-}
-
 .contact-description {
     margin-bottom: var(--spacing-lg);
-    max-width: 48rem;
 }
 
 .leadership-description {
     margin-bottom: var(--spacing-lg);
-    max-width: 48rem;
 }
 
 /* Philosophy quote block (image removed — same as clients page hero) */
@@ -844,7 +837,6 @@ img {
 
 .associates-description {
     margin-bottom: var(--spacing-lg);
-    max-width: 48rem;
 }
 
 /* Vision, Mission, Values - 3 Column Layout */
