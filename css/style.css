@@ -148,8 +148,8 @@ img {
 /* Floating WhatsApp button */
 .whatsapp-float {
     position: fixed;
-    right: calc(16px + env(safe-area-inset-right, 0px));
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(14px + env(safe-area-inset-right, 0px));
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
     width: 56px;
     height: 56px;
     border-radius: 999px;
@@ -183,10 +183,15 @@ img {
 
 @media (max-width: 480px) {
     .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        right: calc(14px + env(safe-area-inset-right, 0px));
-        bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 769px) {
+    .whatsapp-float {
+        right: calc(18px + env(safe-area-inset-right, 0px));
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px));
     }
 }
 
