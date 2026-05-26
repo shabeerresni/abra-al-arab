@@ -437,6 +437,10 @@ img {
     background-image: url('../assets/images/tanker.jpg');
 }
 
+.page-hero--legal {
+    background-image: url('../assets/images/container.jpg');
+}
+
 @media (min-width: 769px) {
     .page-hero {
         min-height: 300px;
@@ -1634,6 +1638,88 @@ img {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.75rem;
     line-height: 1.5;
+}
+
+.footer-legal-links {
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--color-accent-light);
+    text-decoration: underline;
+}
+
+/* Legal Document Styles */
+.legal-document h2 {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--color-gray);
+}
+
+.legal-document h2:first-child {
+    margin-top: 0;
+}
+
+.legal-document p {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.legal-document ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.legal-document ul li {
+    padding: 0.35rem 0 0.35rem 1.5rem;
+    position: relative;
+    color: var(--color-text);
+    line-height: 1.75;
+}
+
+.legal-document ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+.legal-document strong {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.legal-meta {
+    background: var(--color-light-gray);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.legal-meta strong {
+    color: var(--color-primary);
 }
 
 /* Responsive Design */
