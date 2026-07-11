@@ -1402,6 +1402,100 @@ img {
     margin-bottom: var(--spacing-xs);
 }
 
+/* Company Credentials — Contact page */
+.company-credentials {
+    margin: 0 0 var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.company-credentials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, transparent 60%);
+}
+
+.company-credentials__header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.company-credentials__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.company-credentials__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+}
+
+.company-credentials__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.credential-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-left: 2px solid rgba(220, 38, 38, 0.55);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.credential-item__label {
+    margin: 0 0 0.4rem;
+    font-size: 0.72rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.credential-item__value {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+    line-height: 1.2;
+    word-break: break-all;
+}
+
+.credential-item__meta {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 700px) {
+    .company-credentials {
+        padding: var(--spacing-md);
+    }
+
+    .company-credentials__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+}
+
 .contact-form {
     background: var(--color-light-gray);
     padding: var(--spacing-lg);
