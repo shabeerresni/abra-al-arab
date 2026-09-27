@@ -328,12 +328,18 @@ img {
     background-repeat: no-repeat;
     color: var(--color-white);
     padding: var(--spacing-xl) var(--spacing-md);
-    min-height: 500px;
+    /* Fill the viewport below the sticky header so pillars appear only on scroll */
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .hero-video {
@@ -2182,7 +2188,6 @@ img {
     
     .hero {
         padding: var(--spacing-lg) var(--spacing-sm);
-        min-height: 400px;
         background-position: center 28%;
     }
     
