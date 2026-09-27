@@ -69,7 +69,48 @@ document.addEventListener('DOMContentLoaded', function() {
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
+
+    // Hero background video mute / unmute
+    initHeroVideoMute();
 });
+
+function initHeroVideoMute() {
+    const video = document.querySelector('.hero-video');
+    const toggle = document.querySelector('.hero-mute-toggle');
+    if (!video || !toggle) return;
+
+    const mutedIcon = toggle.querySelector('.hero-mute-toggle__icon--muted');
+    const unmutedIcon = toggle.querySelector('.hero-mute-toggle__icon--unmuted');
+    const label = toggle.querySelector('.hero-mute-toggle__label');
+
+    const syncToggleUI = () => {
+        const isMuted = video.muted;
+        toggle.setAttribute('aria-pressed', String(!isMuted));
+        toggle.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
+        if (label) label.textContent = isMuted ? 'Unmute' : 'Mute';
+        if (mutedIcon) mutedIcon.hidden = !isMuted;
+        if (unmutedIcon) unmutedIcon.hidden = isMuted;
+    };
+
+    // Ensure autoplay works: browsers require muted + play()
+    video.muted = true;
+    video.playsInline = true;
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {
+            // Autoplay blocked — keep poster image visible via CSS fallback
+        });
+    }
+    syncToggleUI();
+
+    toggle.addEventListener('click', function () {
+        video.muted = !video.muted;
+        if (!video.muted && video.paused) {
+            video.play().catch(function () {});
+        }
+        syncToggleUI();
+    });
+}
 
 // Set active navigation link
 function setActiveNavLink() {
