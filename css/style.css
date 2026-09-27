@@ -321,11 +321,8 @@ img {
 /* Hero Section — mobile first */
 .hero {
     position: relative;
-    background-color: var(--color-primary);
-    background-image: url('../assets/images/hero-home-timelab.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-color: #000;
+    background-image: none;
     color: var(--color-white);
     padding: var(--spacing-md) var(--spacing-sm);
     /* Fill the viewport below the sticky header so pillars appear only on scroll */
@@ -352,6 +349,7 @@ img {
     object-position: center center;
     z-index: 0;
     pointer-events: none;
+    background-color: #000;
 }
 
 .hero::before {
@@ -460,7 +458,6 @@ img {
 @media (min-width: 992px) {
     .hero {
         padding: var(--spacing-xl) var(--spacing-md);
-        background-position: right top;
     }
 
     .hero-video {
