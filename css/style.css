@@ -318,16 +318,16 @@ img {
     border-radius: 4px;
 }
 
-/* Hero Section */
+/* Hero Section — mobile first */
 .hero {
     position: relative;
     background-color: var(--color-primary);
     background-image: url('../assets/images/hero-home-timelab.jpg');
     background-size: cover;
-    background-position: right top;
+    background-position: center center;
     background-repeat: no-repeat;
     color: var(--color-white);
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
     /* Fill the viewport below the sticky header so pillars appear only on scroll */
     min-height: calc(100vh - var(--header-height));
     min-height: calc(100dvh - var(--header-height));
@@ -347,11 +347,12 @@ img {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Keep the in-video logo (top-right) visible when cover crops the frame */
-    object-position: right top;
+    /* Mobile: show the full 16:9 frame (incl. end-card logo + contact details) */
+    object-fit: contain;
+    object-position: center center;
     z-index: 0;
     pointer-events: none;
+    background-color: var(--color-primary);
 }
 
 .hero::before {
@@ -361,8 +362,24 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(13, 27, 58, 0.78) 0%, rgba(220, 38, 38, 0.14) 48%, rgba(0, 0, 0, 0.52) 100%);
+    background: linear-gradient(135deg, rgba(13, 27, 58, 0.72) 0%, rgba(220, 38, 38, 0.12) 48%, rgba(0, 0, 0, 0.45) 100%);
     z-index: 1;
+    transition: opacity 0.45s ease;
+}
+
+/* Soften overlay + hide page headline while the in-video end card is on screen */
+.hero.hero--endcard::before {
+    opacity: 0;
+}
+
+.hero.hero--endcard .hero-content {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero.hero--endcard .hero-video {
+    object-fit: contain;
+    object-position: center center;
 }
 
 .hero-content {
@@ -370,23 +387,25 @@ img {
     z-index: 2;
     max-width: var(--max-width);
     margin: 0 auto;
+    padding: 0 0.25rem;
+    transition: opacity 0.45s ease;
 }
 
 .hero-mute-toggle {
     position: absolute;
-    bottom: 1.25rem;
-    right: 1.25rem;
+    bottom: max(0.85rem, env(safe-area-inset-bottom, 0px));
+    right: max(0.85rem, env(safe-area-inset-right, 0px));
     z-index: 3;
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.55rem 0.9rem;
+    padding: 0.5rem 0.75rem;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 999px;
     background: rgba(13, 27, 58, 0.72);
     color: var(--color-white);
     font-family: var(--font-primary);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: var(--font-weight-semibold);
     letter-spacing: 0.04em;
     cursor: pointer;
@@ -417,31 +436,42 @@ img {
     line-height: 1;
 }
 
-@media (max-width: 480px) {
-    .hero-mute-toggle {
-        bottom: 0.85rem;
-        right: 0.85rem;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.75rem;
-    }
-}
-
-
 .hero h1 {
     color: var(--color-white);
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
+    font-size: clamp(1.35rem, 5.5vw, 3rem);
+    margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
     text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
+    line-height: 1.25;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-size: clamp(0.95rem, 3.2vw, 1.25rem);
+    line-height: 1.65;
     color: rgba(255, 255, 255, 0.95);
     max-width: 900px;
     margin: 0 auto;
     text-shadow: 0 1px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Desktop / large tablet: immersive cover crop; keep in-video corner logo */
+@media (min-width: 992px) {
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-md);
+        background-position: right top;
+    }
+
+    .hero-video {
+        object-fit: cover;
+        object-position: right top;
+    }
+
+    .hero-mute-toggle {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* Inner page hero (full-bleed band below site header) */

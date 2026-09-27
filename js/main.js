@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initHeroVideoMute() {
+    const hero = document.querySelector('.hero');
     const video = document.querySelector('.hero-video');
     const toggle = document.querySelector('.hero-mute-toggle');
     if (!video || !toggle) return;
@@ -82,6 +83,7 @@ function initHeroVideoMute() {
     const mutedIcon = toggle.querySelector('.hero-mute-toggle__icon--muted');
     const unmutedIcon = toggle.querySelector('.hero-mute-toggle__icon--unmuted');
     const label = toggle.querySelector('.hero-mute-toggle__label');
+    const endCardLeadSeconds = 5;
 
     const syncToggleUI = () => {
         const isMuted = video.muted;
@@ -90,6 +92,17 @@ function initHeroVideoMute() {
         if (label) label.textContent = isMuted ? 'Unmute' : 'Mute';
         if (mutedIcon) mutedIcon.hidden = !isMuted;
         if (unmutedIcon) unmutedIcon.hidden = isMuted;
+    };
+
+    const syncEndCardState = () => {
+        if (!hero) return;
+        const duration = video.duration;
+        if (!duration || !isFinite(duration)) {
+            hero.classList.remove('hero--endcard');
+            return;
+        }
+        const nearEnd = video.currentTime >= duration - endCardLeadSeconds;
+        hero.classList.toggle('hero--endcard', nearEnd);
     };
 
     // Ensure autoplay works: browsers require muted + play()
@@ -102,6 +115,14 @@ function initHeroVideoMute() {
         });
     }
     syncToggleUI();
+
+    video.addEventListener('timeupdate', syncEndCardState);
+    video.addEventListener('seeked', syncEndCardState);
+    video.addEventListener('loadedmetadata', syncEndCardState);
+    video.addEventListener('ended', function () {
+        // loop restart — clear end-card state until near end again
+        if (hero) hero.classList.remove('hero--endcard');
+    });
 
     toggle.addEventListener('click', function () {
         video.muted = !video.muted;
